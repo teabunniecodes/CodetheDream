@@ -1,7 +1,3 @@
-// Please note this is a developmental server only.
-const API_KEY =
-  "YOUR_API_KEY_HERE";
-
 const breedButton = document.getElementById("fetch-breeds-btn");
 const breedsContainer = document.getElementById("breed-container");
 const factsButton = document.getElementById("fetch-facts-btn");
@@ -9,21 +5,9 @@ const factsContainer = document.getElementById("facts-container");
 
 async function fetchListBreeds() {
   try {
-    const response = await fetch("https://api.thedogapi.com/v1/breeds", {
-      headers: {
-        "x-api-key": API_KEY,
-      },
-    });
-    if (!response.ok) {
-      if (response.status === 401 || response.status === 403) {
-        throw new Error(
-          "Authentication failed.  Please check that your API key is valid and correct."
-        );
-      }
-      throw new Error(`HTTP error :(! Status: ${response.status}`);
-    }
+    const response = await fetch("https://api.thedogapi.com/v1/breeds");
     const breeds = await response.json();
-    displayBreeds(breeds); // Now displays all fetched breeds
+    displayBreeds(breeds); // Displays all fetched breeds in a scroll box
   } catch (error) {
     console.error("Error fetching dog breeds:", error);
   }
@@ -41,9 +25,6 @@ function displayBreeds(breeds) {
     breedCard.className = "breed-card";
     breedCard.innerHTML = `${breed.name}`;
     breedsContainer.classList.add("scroll-box");
-    if (breedsContainer.classList.contains("scroll-box")) {
-      console.log("success");
-    }
     breedsContainer.appendChild(breedCard);
   });
 }
@@ -56,19 +37,9 @@ async function fetchBreedFacts() {
       `https://api.thedogapi.com/v1/breeds/search?q=${encodeURIComponent(
         breedTextInput
       )}`,
-      {
-        headers: {
-          "x-api-key": API_KEY, // This key is required for thedogapi.com
-        },
-      }
     );
 
     if (!response.ok) {
-      if (response.status === 401 || response.status === 403) {
-        throw new Error(
-          "Authentication failed for breed info. Please ensure your API key is correct and valid."
-        );
-      }
       throw new Error(
         `HTTP error searching for breed info! Status: ${response.status}`
       );
