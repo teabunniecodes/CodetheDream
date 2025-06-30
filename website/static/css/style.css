@@ -1,9 +1,73 @@
+/* Center all containers on the page */
 body {
-    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally centers the items */
+    justify-content: center; /* Vertically centers the items if there is enough space */
+    min-height: 100vh; /* Ensures the body takes up at least the full viewport height */
+    margin: 0; /* Removes default body margin */
+    padding: 20px; /* Adds some padding around the content */
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
 }
 
+/* Style for all container divs */
+.container {
+    background-color: #f0f0f0; /* A light grey background for visibility */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0; /* Adds space between containers */
+    width: 90%; /* A default width that's responsive */
+    max-width: 600px; /* Limits the max width of the container */
+    text-align: center; /* Centers the text within the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific styles for the breed-container scroll box */
 .scroll-box {
-    height: 300px;
-    width: 400px;
-    overflow: scroll;
+    overflow-y: auto; /* Adds a vertical scrollbar if content overflows */
+    overflow-x: hidden; /* Hides horizontal scrollbar */
+    max-height: 300px; /* Maximum height of 300px */
+    height: 300px; /* Sets a fixed height */
+    min-width: 400px; /* Minimum width of 400px */
+    width: clamp(400px, 90vw, 600px); /* Use clamp for responsive width: min 400px, preferred 90vw, max 600px */
+    padding: 10px; /* Add padding inside the scrollbox */
+    box-sizing: border-box;
+    text-align: left; /* Aligns the text to the left for better readability in a list */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 400px) {
+    #breed-container {
+        min-width: unset; /* Remove the minimum width */
+        width: 90vw; /* Make the width 90% of the viewport width */
+        height: 80vh; /* Use 80% of the viewport height if needed to prevent a massive scrollbox */
+        max-height: 500px; /* Set a reasonable max-height for very tall screens */
+    }
+}
+
+/* Style for the buttons and input field */
+.button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+#breed-name-input {
+    width: calc(100% - 22px); /* Adjust width to fit container with padding */
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
