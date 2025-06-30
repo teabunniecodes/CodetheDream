@@ -5,7 +5,7 @@ const API_KEY =
 const breedButton = document.getElementById("fetch-breeds-btn");
 const breedsContainer = document.getElementById("breed-container");
 const factsButton = document.getElementById("fetch-facts-btn");
-const factsContainer = document.getElementById("facts-container")
+const factsContainer = document.getElementById("facts-container");
 
 async function fetchListBreeds() {
   try {
@@ -40,6 +40,10 @@ function displayBreeds(breeds) {
     const breedCard = document.createElement("div");
     breedCard.className = "breed-card";
     breedCard.innerHTML = `${breed.name}`;
+    breedsContainer.classList.add("scroll-box");
+    if (breedsContainer.classList.contains("scroll-box")) {
+      console.log("success");
+    }
     breedsContainer.appendChild(breedCard);
   });
 }
@@ -80,7 +84,7 @@ async function fetchBreedFacts() {
 function displayFacts(breedName, textInput) {
   const factsCard = document.createElement("div");
   factsCard.className = "factsCard";
-  factsContainer.innerHTML = ""
+  factsContainer.innerHTML = "";
   if (breedName && breedName.length > 0) {
     // Display information for the first matching breed
     const breed = breedName[0];
@@ -105,7 +109,7 @@ function displayFacts(breedName, textInput) {
   } else {
     factsCard.innerHTML = `<p class="text-gray-500 text-lg">"${textInput}" breed not found. Please check spelling or try another name.</p>`;
   }
-  factsContainer.appendChild(factsCard)
+  factsContainer.appendChild(factsCard);
 }
 
 breedButton.addEventListener("click", fetchListBreeds);
