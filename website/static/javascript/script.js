@@ -1,6 +1,6 @@
 // Please note this is a developmental server only.
 const API_KEY =
-  "live_MIzDfMUfZuJgJEod7H8DDwVsGjjxamHcJ4pNI43col8SlLQupNr6fhbdJuLlKGb2";
+  "YOUR_API_KEY_HERE";
 
 const breedButton = document.getElementById("fetch-breeds-btn");
 const breedsContainer = document.getElementById("breed-container");
