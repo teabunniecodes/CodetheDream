@@ -26,4 +26,4 @@ Bash
 ## Features
 - <b>List All Breeds:</b> Displays a comprehensive list of all dog breeds available in TheDogAPI.
 
-- <b>Search for a Breed:</b> Search for a specific dog breed to get detailed information and facts.
+- <b>Search for a Breed:</b> Search for a specific dog breed to get detailed information and facts or provide a picture of that dog breed.

@@ -1,5 +1,6 @@
 /* Center all containers on the page */
 body {
+    background-color: #ffebfa;
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
@@ -13,8 +14,8 @@ body {
 
 /* Style for all container divs */
 .container {
-    background-color: #f0f0f0; /* A light grey background for visibility */
-    border: 1px solid #ccc;
+    background-color: #ffd8f5; /* A light grey background for visibility */
+    border: 1px solid #ffb9fe;
     border-radius: 8px;
     padding: 20px;
     margin: 15px 0; /* Adds space between containers */
@@ -42,14 +43,14 @@ body {
     #breed-container {
         min-width: unset; /* Remove the minimum width */
         width: 90vw; /* Make the width 90% of the viewport width */
-        height: 80vh; /* Use 80% of the viewport height if needed to prevent a massive scrollbox */
+        height: 80vh; /* Use 80% of the viewport height to prevent a massive scrollbox */
         max-height: 500px; /* Set a reasonable max-height for very tall screens */
     }
 }
 
 /* Style for the buttons and input field */
 .button {
-    background-color: #007BFF;
+    background-color: #ff55ee;
     color: white;
     border: none;
     border-radius: 5px;
@@ -58,10 +59,11 @@ body {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    margin: 10px; /*adds space around the buttons*/
 }
 
 .button:hover {
-    background-color: #0056b3;
+    background-color: #ff1de8;
 }
 
 #breed-name-input {
@@ -70,4 +72,8 @@ body {
     margin-top: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
+}
+
+img {
+    max-width: 100%;
 }
